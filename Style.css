@@ -1,0 +1,1086 @@
+/* =========================================================
+   A LITTLE SURPRISE... MADE WITH LOVE
+   DREAMY GLOW THEME ✨
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: #08091b;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =========================================================
+   EVERY PAGE
+========================================================= */
+
+section {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    transition:
+        background 1.5s ease,
+        opacity 1s ease;
+}
+
+
+/* =========================================================
+   CONTENT BOX
+========================================================= */
+
+.content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    max-width: 850px;
+
+    padding: 50px 35px;
+
+    border-radius: 30px;
+
+    background: rgba(5, 8, 25, 0.30);
+
+    backdrop-filter: blur(9px);
+
+    /* glowing border */
+
+    border: 2px solid rgba(235, 220, 255, 0.75);
+
+    box-shadow:
+
+        0 0 7px rgba(255,255,255,0.9),
+
+        0 0 18px rgba(215,190,255,0.75),
+
+        0 0 35px rgba(170,125,240,0.55),
+
+        0 0 65px rgba(120,80,200,0.35),
+
+        inset 0 0 25px rgba(255,255,255,0.06);
+
+    animation: appear 1.2s ease;
+}
+
+
+/* =========================================================
+   TITLE FONT
+========================================================= */
+
+h1,
+h2 {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: #fffaff;
+
+    margin-bottom: 32px;
+
+    /* WHISPERING WEEK STYLE GLOW */
+
+    text-shadow:
+
+        0 0 4px #ffffff,
+
+        0 0 8px #ffffff,
+
+        0 0 16px #f5eaff,
+
+        0 0 28px #d8b5ff,
+
+        0 0 45px #b47cff,
+
+        0 0 70px rgba(170,110,255,0.65);
+
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+h1 {
+
+    font-size: 4.5rem;
+}
+
+
+/* =========================================================
+   CHAPTER TITLE
+========================================================= */
+
+h2 {
+
+    font-size: 3.8rem;
+}
+
+
+/* =========================================================
+   BODY TEXT
+========================================================= */
+
+p {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 1.35rem;
+
+    line-height: 2;
+
+    letter-spacing: 0.4px;
+
+    color: #fffdfd;
+
+    /* BRIGHT DREAMY TEXT */
+
+    text-shadow:
+
+        0 0 3px #ffffff,
+
+        0 0 7px #ffffff,
+
+        0 0 13px #f5eaff,
+
+        0 0 23px #d9b7ff,
+
+        0 0 38px rgba(190,140,255,0.65);
+
+    animation: paragraphGlow 3.5s ease-in-out infinite alternate;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button {
+
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 42px;
+
+    width: auto;
+
+    min-width: 270px;
+
+    padding: 16px 38px;
+
+    border-radius: 50px;
+
+    border: 2px solid white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    color: #180d25;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.35s ease,
+
+        box-shadow 0.45s ease,
+
+        background 0.45s ease;
+}
+
+button:hover {
+    transform: scale(1.07);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   WELCOME PAGE
+========================================================= */
+
+#welcome {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            #263e7a,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 85% 25%,
+            #71345f,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #153c65,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #070b22,
+            #1c1740,
+            #30172f
+        );
+}
+
+
+/* =========================================================
+   WELCOME BUTTON
+========================================================= */
+
+#welcome button {
+
+    background: #d989b6;
+
+    border-color: #ffe1f1;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 15px #ffd4e9,
+
+        0 0 28px #ff91c9,
+
+        0 0 48px #d84d98,
+
+        0 0 75px rgba(215,65,145,0.8);
+}
+
+#welcome button:hover {
+
+    background: #e69ac4;
+
+    box-shadow:
+
+        0 0 8px #ffffff,
+
+        0 0 18px #ffe1ef,
+
+        0 0 35px #ff8fc8,
+
+        0 0 60px #d94898,
+
+        0 0 90px rgba(215,60,145,0.9);
+}
+
+
+/* =========================================================
+   SPECIAL INTRO
+========================================================= */
+
+#specialIntro {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            #304c82,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 85% 70%,
+            #713c68,
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #090d25,
+            #241940,
+            #35182f
+        );
+}
+
+
+/* =========================================================
+   GIFT SECTION
+========================================================= */
+
+#gift {
+    transition:
+        background 1.5s ease,
+        opacity 0.8s ease;
+}
+
+
+/* =========================================================
+   PAGE 1
+   PURPLE + BLUE + PINK
+========================================================= */
+
+#gift[data-page="0"] {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            #394f91,
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 85% 25%,
+            #743873,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #234b73,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #101937,
+            #301d50,
+            #241633
+        ) !important;
+}
+
+
+/* border */
+
+#gift[data-page="0"] .content {
+
+    border-color: #d2baff;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 18px #d2baff,
+
+        0 0 35px #9c76eb,
+
+        0 0 65px rgba(115,75,205,0.7);
+}
+
+
+/* title */
+
+#gift[data-page="0"] h2 {
+
+    color: #fffaff;
+
+    text-shadow:
+
+        0 0 4px #ffffff,
+
+        0 0 9px #ffffff,
+
+        0 0 18px #eee0ff,
+
+        0 0 30px #c39aff,
+
+        0 0 50px #8255dc,
+
+        0 0 75px rgba(110,65,210,0.7);
+}
+
+
+/* button */
+
+#gift[data-page="0"] button {
+
+    background: #a87ed6;
+
+    border-color: #eadfff;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 16px #dcd0ff,
+
+        0 0 32px #a77be8,
+
+        0 0 55px #7142c1,
+
+        0 0 80px rgba(110,60,205,0.8);
+}
+
+
+/* =========================================================
+   PAGE 2
+   ROSE + BURGUNDY + BLUE
+========================================================= */
+
+#gift[data-page="1"] {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            #713a61,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 85% 30%,
+            #483b7c,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #263f64,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #1a1029,
+            #40213e,
+            #1d2948
+        ) !important;
+}
+
+
+/* border */
+
+#gift[data-page="1"] .content {
+
+    border-color: #ffafd0;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 18px #ffafd0,
+
+        0 0 35px #e66d9e,
+
+        0 0 65px rgba(210,60,125,0.7);
+}
+
+
+/* title */
+
+#gift[data-page="1"] h2 {
+
+    color: #fffafa;
+
+    text-shadow:
+
+        0 0 4px #ffffff,
+
+        0 0 9px #ffffff,
+
+        0 0 18px #ffe1ec,
+
+        0 0 30px #ff9bbb,
+
+        0 0 50px #d6538b,
+
+        0 0 75px rgba(205,60,120,0.7);
+}
+
+
+/* button */
+
+#gift[data-page="1"] button {
+
+    background: #d27fa3;
+
+    border-color: #ffe0ec;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 16px #ffd5e4,
+
+        0 0 32px #ef79a5,
+
+        0 0 55px #c5487d,
+
+        0 0 80px rgba(200,55,115,0.8);
+}
+
+
+/* =========================================================
+   PAGE 3
+   BLUE + CYAN + INDIGO
+========================================================= */
+
+#gift[data-page="2"] {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            #245d88,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 85% 30%,
+            #414087,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #174f62,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #071c35,
+            #182b57,
+            #18283f
+        ) !important;
+}
+
+
+/* border */
+
+#gift[data-page="2"] .content {
+
+    border-color: #82e2ff;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 18px #9eeaff,
+
+        0 0 35px #4bc1ec,
+
+        0 0 65px rgba(30,155,210,0.7);
+}
+
+
+/* title */
+
+#gift[data-page="2"] h2 {
+
+    color: #fbffff;
+
+    text-shadow:
+
+        0 0 4px #ffffff,
+
+        0 0 9px #ffffff,
+
+        0 0 18px #ddf9ff,
+
+        0 0 30px #71dcff,
+
+        0 0 50px #398fc5,
+
+        0 0 75px rgba(30,135,200,0.7);
+}
+
+
+/* button */
+
+#gift[data-page="2"] button {
+
+    background: #67b8d5;
+
+    border-color: #d7f7ff;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 16px #c9f5ff,
+
+        0 0 32px #63d6f5,
+
+        0 0 55px #238bb8,
+
+        0 0 80px rgba(20,135,190,0.8);
+}
+
+
+/* =========================================================
+   PAGE 4
+   TEAL + GREEN + BLUE
+========================================================= */
+
+#gift[data-page="3"] {
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #236b61,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            #315b88,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #174a4b,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #071f2b,
+            #123d45,
+            #182d4a
+        ) !important;
+}
+
+
+/* border */
+
+#gift[data-page="3"] .content {
+
+    border-color: #7de7c4;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 18px #a6f7da,
+
+        0 0 35px #4fd1a5,
+
+        0 0 65px rgba(25,175,130,0.7);
+}
+
+
+/* title */
+
+#gift[data-page="3"] h2 {
+
+    color: #fbfffd;
+
+    text-shadow:
+
+        0 0 4px #ffffff,
+
+        0 0 9px #ffffff,
+
+        0 0 18px #dffff3,
+
+        0 0 30px #73ebc2,
+
+        0 0 50px #32a986,
+
+        0 0 75px rgba(20,170,125,0.7);
+}
+
+
+/* button */
+
+#gift[data-page="3"] button {
+
+    background: #69c7a6;
+
+    border-color: #d8fff1;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 16px #c8ffea,
+
+        0 0 32px #64e0b5,
+
+        0 0 55px #299e79,
+
+        0 0 80px rgba(20,160,115,0.8);
+}
+
+
+/* =========================================================
+   PAGE 5
+   GOLD + PURPLE + ROSE
+========================================================= */
+
+#gift[data-page="4"] {
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            #713d69,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 80% 25%,
+            #66512e,
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #3e285b,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #1b102b,
+            #39203e,
+            #28203f
+        ) !important;
+}
+
+
+/* border */
+
+#gift[data-page="4"] .content {
+
+    border-color: #ffd98d;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 18px #ffe3a9,
+
+        0 0 35px #e8aa4e,
+
+        0 0 65px rgba(210,135,40,0.7);
+}
+
+
+/* title */
+
+#gift[data-page="4"] h2 {
+
+    color: #fffdf8;
+
+    text-shadow:
+
+        0 0 4px #ffffff,
+
+        0 0 9px #ffffff,
+
+        0 0 18px #fff0ca,
+
+        0 0 30px #ffd374,
+
+        0 0 50px #d99735,
+
+        0 0 75px rgba(205,135,40,0.7);
+}
+
+
+/* button */
+
+#gift[data-page="4"] button {
+
+    background: #d1a464;
+
+    border-color: #fff1cc;
+
+    box-shadow:
+
+        0 0 7px #ffffff,
+
+        0 0 16px #ffe8b4,
+
+        0 0 32px #f2be64,
+
+        0 0 55px #d68a30,
+
+        0 0 80px rgba(205,125,30,0.8);
+}
+
+
+/* =========================================================
+   TEXT GLOW ANIMATION
+========================================================= */
+
+@keyframes titleGlow {
+
+    from {
+
+        text-shadow:
+
+            0 0 4px #ffffff,
+            0 0 8px #ffffff,
+            0 0 16px #f5eaff,
+            0 0 28px #d8b5ff,
+            0 0 45px #b47cff;
+    }
+
+    to {
+
+        text-shadow:
+
+            0 0 6px #ffffff,
+            0 0 12px #ffffff,
+            0 0 22px #f8edff,
+            0 0 38px #d2a8ff,
+            0 0 60px #a66cff,
+            0 0 85px rgba(170,110,255,0.7);
+    }
+}
+
+
+@keyframes paragraphGlow {
+
+    from {
+
+        text-shadow:
+
+            0 0 3px #ffffff,
+            0 0 7px #ffffff,
+            0 0 14px #eadcff,
+            0 0 24px rgba(210,170,255,0.6);
+    }
+
+    to {
+
+        text-shadow:
+
+            0 0 4px #ffffff,
+            0 0 9px #ffffff,
+            0 0 17px #f4e8ff,
+            0 0 30px rgba(215,175,255,0.9),
+            0 0 45px rgba(180,130,255,0.6);
+    }
+}
+
+
+/* =========================================================
+   FLOATING BIRTHDAY EMOJIS 🎈🎂🎁✨
+========================================================= */
+
+.birthday-floaters {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+
+.birthday-floaters span {
+
+    position: absolute;
+
+    bottom: -70px;
+
+    font-size: 28px;
+
+    opacity: 0;
+
+    animation: birthdayFloat 12s linear infinite;
+}
+
+
+.birthday-floaters span:nth-child(1) {
+    left: 7%;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+.birthday-floaters span:nth-child(2) {
+    left: 20%;
+    animation-delay: 3s;
+    animation-duration: 13s;
+}
+
+.birthday-floaters span:nth-child(3) {
+    left: 35%;
+    animation-delay: 6s;
+    animation-duration: 11s;
+}
+
+.birthday-floaters span:nth-child(4) {
+    left: 51%;
+    animation-delay: 1s;
+    animation-duration: 14s;
+}
+
+.birthday-floaters span:nth-child(5) {
+    left: 67%;
+    animation-delay: 5s;
+    animation-duration: 12s;
+}
+
+.birthday-floaters span:nth-child(6) {
+    left: 82%;
+    animation-delay: 2s;
+    animation-duration: 15s;
+}
+
+.birthday-floaters span:nth-child(7) {
+    left: 92%;
+    animation-delay: 7s;
+    animation-duration: 13s;
+}
+
+
+@keyframes birthdayFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(-8deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+
+        transform:
+            translateY(-55vh)
+            rotate(10deg)
+            scale(1);
+    }
+
+    85% {
+        opacity: 0.65;
+    }
+
+    100% {
+
+        transform:
+            translateY(-115vh)
+            rotate(-10deg)
+            scale(1.05);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   PAGE APPEAR ANIMATION
+========================================================= */
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        line-height: 1.9;
+    }
+
+    .content {
+        padding: 38px 22px;
+        border-radius: 28px;
+    }
+
+    button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .birthday-floaters span {
+        font-size: 25px;
+    }
+}
