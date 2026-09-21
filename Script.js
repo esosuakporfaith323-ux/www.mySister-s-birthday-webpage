@@ -1,3 +1,4 @@
+  alert("Welcome! 🎂");
 document.addEventListener("DOMContentLoaded", function () {
 
     // ===============================
