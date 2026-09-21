@@ -1,3 +1,5 @@
+alert("Welcome! 🎂 in each page, scroll down to read the complete message😊😊 thanks");
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // ===============================
