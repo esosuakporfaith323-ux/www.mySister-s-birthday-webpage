@@ -1,4 +1,4 @@
-alert("JavaScript is working!");
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // ===============================
@@ -330,5 +330,3 @@ I love you. ❤️
 
     gift.style.transition =
         "opacity 0.8s ease";
-
-});
