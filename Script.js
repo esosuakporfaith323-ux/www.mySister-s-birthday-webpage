@@ -1,4 +1,4 @@
-alert("Welcome! 🎂 in each page, scroll down to read the complete message😊😊 thanks");
+alert("Welcome! 🎂 in each page, scroll down to read the complete message from the top 😊😊 thanks 😘😘");
 
 document.addEventListener("DOMContentLoaded", function () {
 
