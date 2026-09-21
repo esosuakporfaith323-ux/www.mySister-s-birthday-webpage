@@ -1,5 +1,4 @@
-alert("Welcome! 🎂 in each page, scroll down to read the complete message from the top 😊😊 thanks 😘😘");
-
+alert("🎂 Welcome! 💕\n\nPlease scroll down through each page to see the full message.\nWhen you reach Page 2, keep scrolling down to the end. ✨");
 document.addEventListener("DOMContentLoaded", function () {
 
     // ===============================
