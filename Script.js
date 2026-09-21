@@ -329,4 +329,6 @@ I love you. ❤️
         "opacity 1s ease";
 
     gift.style.transition =
-        "opacity 0.8s ease";
+        "opacity 0.8s ease"; 
+  
+  });
