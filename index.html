@@ -1,120 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+  <title>A Little Surprise Made With Love</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>A Little Surprise... Made With Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="Style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
-<div class="birthday-floaters">
 
-    <span>🎈</span>
-    <span>🎂</span>
-    <span>🎉</span>
-    <span>🎁</span>
-    <span>💖</span>
-    <span>🥳</span>
-    <span>🎀</span>
+  <!-- STATIONARY BACKGROUND STARS -->
+  <div class="star-background" aria-hidden="true"></div>
 
-</div>
+  <!-- INTRO PAGE -->
+  <section id="introPage" class="intro-page">
+
+    <div class="intro-content">
+
+      <p class="intro-overline">A SPECIAL SURPRISE FOR SOMEONE SPECIAL</p>
+
+      <h1>
+        A Little Surprise
+        <span>Made With Love</span>
+      </h1>
+
+      <p class="intro-description">
+        Some people are simply too precious to be celebrated
+        with ordinary words.
+      </p>
+
+      <div class="intro-divider">
+        <span></span>
+        <span class="divider-star">✦</span>
+        <span></span>
+      </div>
+
+      <button id="enterButton" class="glow-button">
+        Unwrap Your Surprise <span>✧</span>
+      </button>
+
+    </div>
+
+    <p class="intro-footer">MADE WITH LOVE, JUST FOR YOU</p>
+
+  </section>
 
 
-<!-- =========================
-     WELCOME PAGE
-========================= -->
+  <!-- FIVE-SECOND WELCOME SURPRISE -->
+  <section id="welcomeOverlay" class="welcome-overlay" hidden>
 
-<section id="welcome">
+    <div class="welcome-frame">
 
-    <div class="content">
+      <span class="welcome-star">✦</span>
 
-        <h1>
-            A Little Surprise...
-            <br>
-            Made With Love
-        </h1>
+      <p class="welcome-small">THIS LITTLE WORLD IS YOURS</p>
+
+      <h2>
+        For My
+        <span>Amazing Sister</span>
+      </h2>
+
+      <p class="welcome-message">
+        Every detail was chosen with love, just for you.
+      </p>
+
+      <div class="welcome-line"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MAIN WEBSITE -->
+  <main id="mainPage" hidden>
+
+    <!-- PAGE HEADER -->
+    <header class="site-header">
+
+      <p class="header-label">A BIRTHDAY SURPRISE</p>
+
+      <h1>
+        For My <span>Amazing Sister</span>
+      </h1>
+
+      <p class="header-subtitle">
+        A little collection of love, memories, and wishes.
+      </p>
+
+    </header>
+
+
+    <!-- COMPACT MUSIC CARD AT THE TOP -->
+    <section id="musicSection" class="music-card">
+
+      <div class="music-heading">
+
+        <div class="music-icon">♫</div>
+
+        <div class="music-description">
+          <p class="eyebrow">A LITTLE MUSIC FOR YOU</p>
+          <h2>Your Birthday Soundtrack</h2>
+          <p>Let this little melody accompany your surprise.</p>
+        </div>
+
+      </div>
+
+      <audio id="birthdayMusic" controls loop preload="metadata">
+        <source
+          src="https://cdn.dbimg.app/oWKeVjQg.mp3"
+          type="audio/mpeg"
+        >
+        Your browser does not support audio playback.
+      </audio>
+
+    </section>
+
+
+    <!-- MESSAGE COLLECTION -->
+    <section id="messages" class="messages-section">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">WORDS FROM MY HEART</p>
+
+        <h2>Little Pieces of <span>Love</span></h2>
 
         <p>
-            Someone who means so much to me
-            deserves something made by my own hands.
-        </p>
-<audio id="birthdayMusic" controls loop>
-    <source src="https://cdn.dbimg.app/oWKeVjQg.mp3" type="audio/mpeg">
-    Your browser does not support audio playback.
-</audio>
-
-        <button id="openGift">
-            🎁 Open Your Gift
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SPECIAL INTRO
-========================= -->
-
-<section id="specialIntro" class="hidden">
-
-    <div class="content">
-
-        <h1>
-            For My Amazing Sister...
-        </h1>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     BIRTHDAY GIFT
-========================= -->
-
-<section id="gift" class="hidden">
-
-    <div class="content">
-
-        <h2 id="chapterTitle">
-            🎂 Happy Birthday
-        </h2>
-
-        <p id="chapterText">
+          Each card holds something I want you to know.
+          Take your time with every one.
         </p>
 
-        <button id="nextBtn">
-            Next →
+      </div>
+
+
+      <!-- ONE FULL-WIDTH CARD BELOW ANOTHER -->
+      <div class="message-list">
+
+        <button class="message-card" data-card="0" type="button">
+          <span class="card-number">01</span>
+          <span class="card-text">
+            <strong>To My Dearest Sister</strong>
+            <small>A letter from your little sister</small>
+          </span>
+          <span class="card-arrow">↗</span>
         </button>
 
-    </div>
+        <button class="message-card" data-card="1" type="button">
+          <span class="card-number">02</span>
+          <span class="card-text">
+            <strong>What You Mean to Me</strong>
+            <small>Something words can barely explain</small>
+          </span>
+          <span class="card-arrow">↗</span>
+        </button>
 
-</section>
+        <button class="message-card" data-card="2" type="button">
+          <span class="card-number">03</span>
+          <span class="card-text">
+            <strong>Your Beautiful Heart</strong>
+            <small>The person you are is worth celebrating</small>
+          </span>
+          <span class="card-arrow">↗</span>
+        </button>
+
+        <button class="message-card" data-card="3" type="button">
+          <span class="card-number">04</span>
+          <span class="card-text">
+            <strong>For Your Journey</strong>
+            <small>Beautiful things I wish for your future</small>
+          </span>
+          <span class="card-arrow">↗</span>
+        </button>
+
+        <button class="message-card" data-card="4" type="button">
+          <span class="card-number">05</span>
+          <span class="card-text">
+            <strong>My Prayers for You</strong>
+            <small>Love, faith, and wishes for your new age</small>
+          </span>
+          <span class="card-arrow">↗</span>
+        </button>
+
+        <button class="message-card" data-card="5" type="button">
+          <span class="card-number">06</span>
+          <span class="card-text">
+            <strong>Things I Hope You Know</strong>
+            <small>A few reminders from my heart</small>
+          </span>
+          <span class="card-arrow">↗</span>
+        </button>
+
+        <button class="message-card" data-card="6" type="button">
+          <span class="card-number">07</span>
+          <span class="card-text">
+            <strong>A Little Birthday Game</strong>
+            <small>Five questions, five loving answers</small>
+          </span>
+          <span class="card-arrow">↗</span>
+        </button>
+
+        <button class="message-card" data-card="7" type="button">
+          <span class="card-number">08</span>
+          <span class="card-text">
+            <strong>One Last Thing, Big Sis</strong>
+            <small>Before you leave this little surprise</small>
+          </span>
+          <span class="card-arrow">↗</span>
+        </button>
+
+      </div>
+
+    </section>
 
 
-    
-<script src="Script.js"></script>
+    <!-- INDIVIDUAL MESSAGE VIEW -->
+    <section id="messageDetail" class="message-detail" hidden>
+
+      <div class="detail-topline">
+        <span id="detailNumber">MESSAGE 01 OF 08</span>
+        <span class="detail-symbol">✦</span>
+      </div>
+
+      <div class="detail-panel">
+
+        <p class="eyebrow">A MESSAGE FROM MY HEART</p>
+
+        <h2 id="detailTitle"></h2>
+
+        <div id="detailContent" class="detail-content"></div>
+
+      </div>
+
+      <div class="detail-navigation">
+
+        <button id="previousCard" class="glow-button secondary-button" type="button">
+          ← Previous
+        </button>
+
+        <button id="returnToCards" class="glow-button" type="button">
+          All Messages
+        </button>
+
+        <button id="nextCard" class="glow-button" type="button">
+          Next Message →
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- GALLERY INSIDE ITS OWN CARD -->
+    <section id="gallery" class="gallery-card">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">MOMENTS WORTH KEEPING</p>
+
+        <h2>A Gallery of <span>Memories</span></h2>
+
+        <p>
+          Little glimpses of someone who means so much.
+        </p>
+
+      </div>
+
+      <div class="gallery-grid">
+
+        <figure class="gallery-photo">
+          <img
+            src="https://i.ibb.co/twdDwYz1/IMG-20261021-WA0016.jpg"
+            alt="A treasured birthday memory"
+            loading="lazy"
+          >
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="https://i.ibb.co/Xxhg9S0W/IMG-20261021-WA0015.jpg"
+            alt="A special moment"
+            loading="lazy"
+          >
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="https://i.ibb.co/R4VFPHmn/IMG-20261021-WA0014.jpg"
+            alt="A beautiful memory"
+            loading="lazy"
+          >
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="https://i.ibb.co/21X9KZbn/IMG-20261021-WA0013.jpg"
+            alt="A moment to remember"
+            loading="lazy"
+          >
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="https://i.ibb.co/SDwyzyqz/IMG-20261021-WA0012.jpg"
+            alt="A treasured photograph"
+            loading="lazy"
+          >
+        </figure>
+
+        <figure class="gallery-photo">
+          <img
+            src="https://i.ibb.co/dwQT3VZz/IMG-20261021-WA0011.jpg"
+            alt="Another special memory"
+            loading="lazy"
+          >
+        </figure>
+
+      </div>
+
+      <p class="gallery-note">
+        Every memory has its own little place in the heart.
+      </p>
+
+    </section>
+
+
+    <!-- CLOSING MESSAGE -->
+    <footer class="site-footer">
+
+      <div class="footer-star">✦</div>
+
+      <p>MADE ESPECIALLY FOR YOU</p>
+
+      <h2>With Love, <span>Always.</span></h2>
+
+      <p class="footer-small">
+        A little surprise. A lot of love.
+      </p>
+
+      <button id="replayButton" class="glow-button" type="button">
+        Relive the Surprise ↺
+      </button>
+
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+
 </body>
+    </html>
 
-             </html>
