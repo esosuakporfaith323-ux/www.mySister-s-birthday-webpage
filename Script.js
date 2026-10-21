@@ -1,334 +1,780 @@
-alert("🎂 Welcome! 💕\n\nPlease scroll down through each page to see the full message.\nWhen you reach Page 2, keep scrolling down to the end. ✨");
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // ===============================
-    // GET HTML ELEMENTS
-    // ===============================
+  // ==========================================
+  // PAGE ELEMENTS
+  // ==========================================
 
-    const welcome = document.getElementById("welcome");
-    const specialIntro = document.getElementById("specialIntro");
-    const gift = document.getElementById("gift");
+  const introPage = document.getElementById("introPage");
+  const enterButton = document.getElementById("enterButton");
 
-    const openGift = document.getElementById("openGift");
+  const welcomeOverlay = document.getElementById("welcomeOverlay");
 
-    const chapterTitle = document.getElementById("chapterTitle");
-    const chapterText = document.getElementById("chapterText");
-    const nextBtn = document.getElementById("nextBtn");
+  const mainPage = document.getElementById("mainPage");
+  const messagesSection = document.getElementById("messages");
+  const messageDetail = document.getElementById("messageDetail");
+
+  const detailNumber = document.getElementById("detailNumber");
+  const detailTitle = document.getElementById("detailTitle");
+  const detailContent = document.getElementById("detailContent");
+
+  const previousButton = document.getElementById("previousCard");
+  const nextButton = document.getElementById("nextCard");
+  const returnButton = document.getElementById("returnToCards");
+
+  const replayButton = document.getElementById("replayButton");
+  const birthdayMusic = document.getElementById("birthdayMusic");
+
+  const messageCards = Array.from(
+    document.querySelectorAll(".message-card")
+  );
+
+  let currentCardIndex = 0;
+  let currentGameQuestion = 0;
+  let welcomeTimer = null;
 
 
-    // ===============================
-    // CHECK HTML ELEMENTS
-    // ===============================
+  // ==========================================
+  // EIGHT MESSAGE CARDS
+  // ==========================================
 
-    if (!welcome || !specialIntro || !gift ||
-        !openGift || !chapterTitle ||
-        !chapterText || !nextBtn) {
+  const messages = [
 
-        console.error(
-            "Some HTML elements are missing. Check the IDs in your HTML."
-        );
+    {
+      title: "To My Dearest Sister",
 
-        return;
+      text: `
+        <p>Dear big sis,</p>
+
+        <p>
+          Today is a beautiful reminder of how blessed I am to have you
+          in my life. You are more than my sister. You are someone whose
+          presence has a special place in my heart, someone I will always
+          be grateful to God for.
+        </p>
+
+        <p>
+          I admire the strength you carry, the kindness you show, and
+          the way you continue moving forward even when life is not easy.
+          You may not always realize how special you are, but I hope
+          today reminds you that your life means so much.
+        </p>
+
+        <p>
+          Happy birthday, my precious big sister. I made this little
+          surprise with love, simply because you deserve to be celebrated.
+        </p>
+      `
+    },
+
+    {
+      title: "What You Mean to Me",
+
+      text: `
+        <p>
+          Some people enter our lives and leave ordinary memories.
+          Others become a part of our hearts in a way words cannot fully
+          explain. You are one of those people to me.
+        </p>
+
+        <p>
+          You are not someone I could measure against another person.
+          You have your own place in my heart, your own story, and your
+          own kind of importance. Nobody else can be you.
+        </p>
+
+        <p>
+          I hope you never doubt that you matter. Even on the days when
+          life feels overwhelming, please remember that you are loved
+          more deeply than a single birthday message could ever express.
+        </p>
+      `
+    },
+
+    {
+      title: "Your Beautiful Heart",
+
+      text: `
+        <p>
+          One of the things I appreciate about you is the person you are
+          becoming. Your heart, your courage, your kindness, and the
+          things you keep trying to do matter.
+        </p>
+
+        <p>
+          You do not have to be perfect to be wonderful. You do not have
+          to have every answer or have everything figured out. You are
+          allowed to learn, grow, rest, and begin again.
+        </p>
+
+        <p>
+          I pray that the world gives you reasons to smile, people who
+          genuinely appreciate you, and moments that remind you how
+          beautiful life can be.
+        </p>
+      `
+    },
+
+    {
+      title: "For Your Journey",
+
+      text: `
+        <p>
+          Big sis, as you step into another year, I hope you give yourself
+          permission to dream boldly. May you discover opportunities that
+          bring out the best in you and find the courage to pursue the
+          things that truly matter.
+        </p>
+
+        <p>
+          Your journey does not have to look like anybody else's.
+          Take your time. Learn what you need to learn. Celebrate your
+          progress, even when it seems small.
+        </p>
+
+        <p>
+          May the doors meant for you open at the right time, and may
+          you have the wisdom to recognize the opportunities worth taking.
+        </p>
+      `
+    },
+
+    {
+      title: "My Prayers for You",
+
+      text: `
+        <p>
+          My prayer for you is that God continues to guide your steps,
+          strengthen your heart, and give you peace in every season.
+        </p>
+
+        <p>
+          May He protect you, give you wisdom when decisions are difficult,
+          and surround you with people whose intentions are sincere.
+          May you find strength when you feel tired and hope when the
+          road ahead seems uncertain.
+        </p>
+
+        <p>
+          May this new year of your life bring growth, good health,
+          genuine happiness, meaningful opportunities, and beautiful
+          reasons to thank God.
+        </p>
+
+        <p>
+          Happy birthday, my sister. You are in my prayers.
+        </p>
+      `
+    },
+
+    {
+      title: "Things I Hope You Know",
+
+      text: `
+        <p>
+          I hope you know that you do not always have to be strong for
+          everybody. You deserve care, encouragement, rest, and people
+          who make you feel safe enough to be yourself.
+        </p>
+
+        <p>
+          I hope you know that a difficult day does not make you a failure,
+          a mistake does not define your entire life, and a slow season
+          does not mean you are going nowhere.
+        </p>
+
+        <p>
+          Most importantly, I hope you know that you are valuable beyond
+          your achievements. You are a person worth loving and celebrating
+          simply because you are you.
+        </p>
+      `
+    },
+
+    {
+      title: "A Little Birthday Game",
+
+      text: `
+        <p>
+          Big sis, this little game was made especially for you.
+          Answer each question in your heart, reveal my answer, and
+          discover why I chose it.
+        </p>
+
+        <div class="birthday-game" id="birthdayGame">
+
+          <p class="game-progress" id="gameProgress">
+            QUESTION 1 OF 5
+          </p>
+
+          <h3 class="game-question" id="gameQuestion"></h3>
+
+          <p class="game-answer" id="gameAnswer" hidden></p>
+
+          <p class="game-reason" id="gameReason" hidden></p>
+
+          <button
+            class="glow-button game-button"
+            id="revealAnswer"
+            type="button"
+          >
+            Reveal My Answer
+          </button>
+
+          <button
+            class="glow-button game-button"
+            id="nextQuestion"
+            type="button"
+            hidden
+          >
+            Discover Another
+          </button>
+
+        </div>
+      `
+    },
+
+    {
+      title: "One Last Thing, Big Sis",
+
+      text: `
+        <p>
+          If there is one thing I want you to carry with you from this
+          little surprise, it is this: your life is worth celebrating.
+        </p>
+
+        <p>
+          I may not always find the perfect words to express everything
+          I feel, but I hope the little things I create remind you that
+          you are special to me.
+        </p>
+
+        <p>
+          May your new age bring beautiful memories, sincere love,
+          unexpected blessings, and moments that make you proud of
+          the woman you are becoming.
+        </p>
+
+        <p>
+          Happy birthday, my amazing big sis.
+          This surprise was made with love, just for you.
+        </p>
+
+        <p class="gold-signature">
+          Always your little sister. Always with love.
+        </p>
+        <div class="full-name-tribute">
+  <h3 class="full-name-heading">Esosuakpor Faith TJ</h3>
+
+  <p>You are a woman of remarkable strength, a mind capable of extraordinary things, and a spirit that deserves to be celebrated.</p>
+
+  <p>You carry within you a potential that no circumstance can erase and a worth that no person's opinion can diminish.</p>
+
+  <p>May you always have the courage to pursue the life you envision, the wisdom to recognize your own value, and the confidence to walk into every room knowing you belong there.</p>
+
+  <p>Never allow the difficulties of today to convince you that you are anything less than the incredible woman you are growing into.</p>
+</div>
+      `
     }
 
+  ];
 
-    // ===============================
-    // CHAPTERS
-    // ===============================
 
-    const chapters = [
+  // ==========================================
+  // BIRTHDAY GAME QUESTIONS
+  // ==========================================
 
-        {
-            title: "🎂 Happy Birthday",
+  const gameQuestions = [
 
-            text: `Happy Birthday, Faith! 🎉
+    {
+      question: "Who deserves to be celebrated today?",
+      answer: "YOU, BIG SIS!",
+      reason:
+        "Do you know why I said that? Because your life is meaningful, your presence matters, and today is a special chance to celebrate you."
+    },
 
-Today is more than just another day on the calendar. It is a celebration of your life, your journey, your strength, and the beautiful person you continue to become.
+    {
+      question: "Can anyone else take your exact place in my heart?",
+      answer: "NO ONE CAN BE YOU.",
+      reason:
+        "Do you know why I said that? Because you have your own story and a place in my life that belongs to you."
+    },
 
-On this special day, I wanted to give you something different.
+    {
+      question: "What do I wish for your new age?",
+      answer: "A YEAR FILLED WITH BEAUTIFUL THINGS.",
+      reason:
+        "Do you know why I said that? Because you deserve opportunities to grow, reasons to smile, peace of mind, and memories worth keeping."
+    },
 
-Instead of buying an ordinary gift, I decided to create one with my own hands.
+    {
+      question: "What should you remember on difficult days?",
+      answer: "YOU ARE STILL VALUABLE.",
+      reason:
+        "Do you know why I said that? Because your worth does not disappear when things go wrong. You deserve kindness even when life is difficult."
+    },
 
-Every line on this page was written with love, and every part of this little website was made especially for you.
+    {
+      question: "What is this little surprise really saying?",
+      answer: "YOU ARE LOVED, BIG SIS!",
+      reason:
+        "Do you know why I said that? Because sometimes love needs more than words, so I made this little corner of the internet especially for you."
+    }
 
-So smile, relax, and enjoy this little surprise.
+  ];
 
-Because today is all about you. ❤️`,
 
-            button: "💌 A Letter to My Sister →"
-        },
+  // ==========================================
+  // INTRO AND FIVE-SECOND WELCOME
+  // ==========================================
 
+  function openSurprise() {
 
-        {
-            title: "💌 A Letter to My Sister",
+    if (introPage) {
+      introPage.hidden = true;
+    }
 
-            text: `Dear Big Sis,
+    if (welcomeOverlay) {
+      welcomeOverlay.hidden = false;
+    }
 
-There are some things that are easier to write than to say, and this is one of them.
+    if (mainPage) {
+      mainPage.hidden = true;
+    }
 
-Having you as my sister has been one of God's greatest blessings in my life.
+    window.scrollTo({
+      top: 0,
+      behavior: "auto"
+    });
 
-You've laughed with me, encouraged me, corrected me, prayed for me, and stood beside me.
+    clearTimeout(welcomeTimer);
 
-Even when we disagreed or I made mistakes, your love never disappeared.
+    welcomeTimer = setTimeout(() => {
 
-That is something I will always treasure.
+      if (welcomeOverlay) {
+        welcomeOverlay.hidden = true;
+      }
 
-Thank you for being my sister.
+      if (mainPage) {
+        mainPage.hidden = false;
+      }
 
-Thank you for believing in me.
+      if (messageDetail) {
+        messageDetail.hidden = true;
+      }
 
-Thank you for loving me.
+      if (messagesSection) {
+        messagesSection.hidden = false;
+      }
 
-And thank you for simply being you. ❤️`,
+      window.scrollTo({
+        top: 0,
+        behavior: "auto"
+      });
 
-            button: "🌸 The Little Things →"
-        },
+    }, 5000);
 
+  }
 
-        {
-            title: "🌸 The Little Things",
 
-            text: `Dear Big Sis,
+  if (enterButton) {
+    enterButton.addEventListener("click", openSurprise);
+  }
 
-This is my own little way of saying Happy Birthday.
 
-You mean so much to me, and I want you to know how deeply I admire the person you are.
+  // ==========================================
+  // OPEN A MESSAGE
+  // ==========================================
 
-I admire your strength, your kindness, your patience, and the quiet courage you carry every day.
+  function openMessage(index) {
 
-You've gone through school, faced difficult moments, graduated successfully, and continued moving forward even when things weren't easy.
+    if (!messages[index]) {
+      return;
+    }
 
-You remained strong, trusted in God, and kept believing that better days were ahead.
+    currentCardIndex = index;
 
-Your name is Faith, and I truly believe it wasn't given to you by mistake.
+    const message = messages[index];
 
-You chose faith over fear, hope over doubt, and perseverance over giving up.
+    if (detailNumber) {
+      detailNumber.textContent =
+        `MESSAGE ${String(index + 1).padStart(2, "0")} OF 08`;
+    }
 
-Never forget the incredible woman you are.
+    if (detailTitle) {
+      detailTitle.textContent = message.title;
+    }
 
-No matter what life throws at you, stand tall. Stand firm. Face every challenge with courage.
+    if (detailContent) {
+      detailContent.innerHTML = message.text;
+    }
 
-Thank you for being such an amazing sister.
+    if (messagesSection) {
+      messagesSection.hidden = true;
+    }
 
-You've supported me in more ways than I could ever explain, and I will always appreciate everything you've done for me.
+    if (messageDetail) {
+      messageDetail.hidden = false;
+    }
 
-Happy Birthday, my wonderful sister.
+    updateNavigation();
 
-With all my love,
+    if (index === 6) {
+      setupBirthdayGame();
+    }
 
-— Peace ❤️`,
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
-            button: "🌷 My Wishes for You →"
-        },
+  }
 
 
-        {
-            title: "🌷 My Wishes for You",
+  messageCards.forEach((card, index) => {
 
-            text: `As you begin another year of your life, my heart is filled with prayers for you.
+    card.addEventListener("click", () => {
 
-May God continue to guide every step you take and bless every decision you make.
+      const cardIndex = Number(card.dataset.card);
 
-May He open doors of opportunity that no one can close and surround you with people who genuinely love and support you.
-
-May your dreams become reality, your hard work be rewarded, and your heart always find peace.
-
-Whenever challenges come, may God give you the wisdom to overcome them and the strength to keep moving forward.
-
-May your smile never fade, your hope never grow dim, and your faith in God become even stronger.
-
-May this new age bring you joy, love, success, answered prayers, and countless beautiful memories.
-
-Happy Birthday once again, my amazing sister. ❤️`,
-
-            button: "✨ One Last Thing... →"
-        },
-
-
-        {
-            title: "✨ One Last Thing...",
-
-            text: `This isn't the most expensive gift you'll receive.
-
-It isn't wrapped in paper.
-
-It isn't sitting inside a box.
-
-It's simply something I built with love, one line of code at a time.
-
-And behind every line of code is a little reminder of how much you mean to me.
-
-Happy Birthday, Faith.
-
-No matter where life takes us, you'll always be my big sister.
-
-I love you. ❤️
-
-— Peace`,
-
-            button: "💖 Start Again"
-        }
-
-    ];
-
-
-    // ===============================
-    // CURRENT CHAPTER
-    // ===============================
-
-    let currentChapter = 0;
-
-
-    // ===============================
-    // OPEN THE GIFT
-    // ===============================
-
-    openGift.addEventListener("click", function () {
-
-        welcome.style.opacity = "0";
-
-        setTimeout(function () {
-
-            welcome.classList.add("hidden");
-
-            specialIntro.classList.remove("hidden");
-
-            specialIntro.style.opacity = "0";
-
-            setTimeout(function () {
-                specialIntro.style.opacity = "1";
-            }, 100);
-
-
-            setTimeout(function () {
-
-                specialIntro.style.opacity = "0";
-
-                setTimeout(function () {
-
-                    specialIntro.classList.add("hidden");
-
-                    gift.classList.remove("hidden");
-
-                    gift.style.opacity = "0";
-
-                    showChapter();
-
-                    setTimeout(function () {
-                        gift.style.opacity = "1";
-                    }, 100);
-
-                }, 1000);
-
-            }, 2500);
-
-        }, 1200);
+      if (
+        Number.isInteger(cardIndex) &&
+        cardIndex >= 0 &&
+        cardIndex < messages.length
+      ) {
+        openMessage(cardIndex);
+      } else {
+        openMessage(index);
+      }
 
     });
 
-
-    // ===============================
-    // SHOW CHAPTER
-    // ===============================
-
-    function showChapter() {
-
-        const chapter = chapters[currentChapter];
-        gift.setAttribute("data-page", currentChapter);
-
-        chapterTitle.textContent = chapter.title;
-
-        chapterText.innerHTML =
-            chapter.text.replace(/\n/g, "<br><br>");
-
-        // BUTTON SHOWS NEXT TITLE
-
-        nextBtn.textContent = chapter.button;
-
-
-        // ===============================
-        // CHANGE BACKGROUND
-        // ===============================
-
-        if (currentChapter === 0) {
-
-            gift.style.background =
-                "linear-gradient(135deg, #3A0CA3, #1D3557)";
-
-        }
-
-        else if (currentChapter === 1) {
-
-            gift.style.background =
-                "linear-gradient(135deg, #5A189A, #240046)";
-
-        }
-
-        else if (currentChapter === 2) {
-
-            gift.style.background =
-                "linear-gradient(135deg, #0B3D91, #1E1E62)";
-
-        }
-
-        else if (currentChapter === 3) {
-
-            gift.style.background =
-                "linear-gradient(135deg, #0B6E4F, #081229)";
-
-        }
-
-        else if (currentChapter === 4) {
-
-            gift.style.background =
-                "linear-gradient(135deg, #000000, #6B4E00)";
-
-        }
-
-    }
-
-
-    // ===============================
-    // NEXT BUTTON
-    // ===============================
-
-    nextBtn.addEventListener("click", function () {
-
-        gift.style.opacity = "0";
-
-        setTimeout(function () {
-
-            if (currentChapter < chapters.length - 1) {
-
-                currentChapter++;
-
-            } else {
-
-                currentChapter = 0;
-
-            }
-
-            showChapter();
-
-            gift.style.opacity = "1";
-
-        }, 800);
-
-    });
-
-
-    // ===============================
-    // TRANSITIONS
-    // ===============================
-
-    welcome.style.transition =
-        "opacity 1.2s ease";
-
-    specialIntro.style.transition =
-        "opacity 1s ease";
-
-    gift.style.transition =
-        "opacity 0.8s ease"; 
-  
   });
+
+
+  // ==========================================
+  // PREVIOUS AND NEXT BUTTONS
+  // ==========================================
+
+  function updateNavigation() {
+
+    if (previousButton) {
+      previousButton.hidden = currentCardIndex === 0;
+      previousButton.disabled = currentCardIndex === 0;
+    }
+
+    if (nextButton) {
+      nextButton.hidden =
+        currentCardIndex === messages.length - 1;
+
+      nextButton.disabled =
+        currentCardIndex === messages.length - 1;
+    }
+
+  }
+
+
+  if (previousButton) {
+
+    previousButton.addEventListener("click", () => {
+
+      if (currentCardIndex > 0) {
+        openMessage(currentCardIndex - 1);
+      }
+
+    });
+
+  }
+
+
+  if (nextButton) {
+
+    nextButton.addEventListener("click", () => {
+
+      if (currentCardIndex < messages.length - 1) {
+        openMessage(currentCardIndex + 1);
+      }
+
+    });
+
+  }
+
+
+  // ==========================================
+  // RETURN TO THE EIGHT MESSAGE CARDS
+  // ==========================================
+
+  if (returnButton) {
+
+    returnButton.addEventListener("click", () => {
+
+      if (messageDetail) {
+        messageDetail.hidden = true;
+      }
+
+      if (messagesSection) {
+        messagesSection.hidden = false;
+      }
+
+      window.scrollTo({
+        top: messagesSection
+          ? messagesSection.getBoundingClientRect().top +
+            window.scrollY - 15
+          : 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  }
+
+
+  // ==========================================
+  // BIRTHDAY GAME
+  // ==========================================
+
+  function setupBirthdayGame() {
+
+    currentGameQuestion = 0;
+
+    displayGameQuestion();
+
+    const revealButton =
+      document.getElementById("revealAnswer");
+
+    const nextQuestionButton =
+      document.getElementById("nextQuestion");
+
+    if (revealButton) {
+      revealButton.onclick = revealGameAnswer;
+    }
+
+    if (nextQuestionButton) {
+      nextQuestionButton.onclick = moveToNextQuestion;
+    }
+
+  }
+
+
+  function displayGameQuestion() {
+
+    const progress =
+      document.getElementById("gameProgress");
+
+    const question =
+      document.getElementById("gameQuestion");
+
+    const answer =
+      document.getElementById("gameAnswer");
+
+    const reason =
+      document.getElementById("gameReason");
+
+    const revealButton =
+      document.getElementById("revealAnswer");
+
+    const nextQuestionButton =
+      document.getElementById("nextQuestion");
+
+    const item = gameQuestions[currentGameQuestion];
+
+    if (!item) {
+      return;
+    }
+
+    if (progress) {
+      progress.textContent =
+        `QUESTION ${currentGameQuestion + 1} OF ${gameQuestions.length}`;
+    }
+
+    if (question) {
+      question.textContent = item.question;
+    }
+
+    if (answer) {
+      answer.textContent = "";
+      answer.hidden = true;
+    }
+
+    if (reason) {
+      reason.textContent = "";
+      reason.hidden = true;
+    }
+
+    if (revealButton) {
+      revealButton.hidden = false;
+      revealButton.textContent = "Reveal My Answer";
+    }
+
+    if (nextQuestionButton) {
+      nextQuestionButton.hidden = true;
+
+      nextQuestionButton.textContent =
+        currentGameQuestion === gameQuestions.length - 1
+          ? "Play Again"
+          : "Discover Another";
+    }
+
+  }
+
+
+  function revealGameAnswer() {
+
+    const item = gameQuestions[currentGameQuestion];
+
+    if (!item) {
+      return;
+    }
+
+    const answer =
+      document.getElementById("gameAnswer");
+
+    const reason =
+      document.getElementById("gameReason");
+
+    const revealButton =
+      document.getElementById("revealAnswer");
+
+    const nextQuestionButton =
+      document.getElementById("nextQuestion");
+
+    if (answer) {
+      answer.textContent = item.answer;
+      answer.hidden = false;
+    }
+
+    if (reason) {
+      reason.textContent = item.reason;
+      reason.hidden = false;
+    }
+
+    if (revealButton) {
+      revealButton.hidden = true;
+    }
+
+    if (nextQuestionButton) {
+      nextQuestionButton.hidden = false;
+    }
+
+  }
+
+
+  function moveToNextQuestion() {
+
+    if (currentGameQuestion >= gameQuestions.length - 1) {
+      currentGameQuestion = 0;
+    } else {
+      currentGameQuestion++;
+    }
+
+    displayGameQuestion();
+
+  }
+
+
+  // ==========================================
+  // GALLERY IMAGES
+  // ==========================================
+
+  const galleryImages =
+    document.querySelectorAll(".gallery-photo img");
+
+  galleryImages.forEach((image) => {
+
+    image.addEventListener("error", () => {
+
+      image.alt = "This photograph could not be loaded.";
+
+      image.style.opacity = "0.4";
+
+    });
+
+  });
+
+
+  // ==========================================
+  // MUSIC
+  // ==========================================
+
+  if (birthdayMusic) {
+
+    birthdayMusic.volume = 0.65;
+
+    birthdayMusic.addEventListener("error", () => {
+
+      console.warn(
+        "The music could not be loaded. Please check the audio URL or your internet connection."
+      );
+
+    });
+
+  }
+
+
+  // ==========================================
+  // REPLAY THE SURPRISE
+  // ==========================================
+
+  if (replayButton) {
+
+    replayButton.addEventListener("click", () => {
+
+      clearTimeout(welcomeTimer);
+
+      if (birthdayMusic) {
+        birthdayMusic.pause();
+        birthdayMusic.currentTime = 0;
+      }
+
+      if (mainPage) {
+        mainPage.hidden = true;
+      }
+
+      if (messageDetail) {
+        messageDetail.hidden = true;
+      }
+
+      if (messagesSection) {
+        messagesSection.hidden = false;
+      }
+
+      if (welcomeOverlay) {
+        welcomeOverlay.hidden = true;
+      }
+
+      if (introPage) {
+        introPage.hidden = false;
+      }
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  }
+
+
+  // ==========================================
+  // INITIAL PAGE STATE
+  // ==========================================
+
+  if (introPage) {
+    introPage.hidden = false;
+  }
+
+  if (welcomeOverlay) {
+    welcomeOverlay.hidden = true;
+  }
+
+  if (mainPage) {
+    mainPage.hidden = true;
+  }
+
+  if (messageDetail) {
+    messageDetail.hidden = true;
+  }
+
+  console.log("Luxury Birthday Website is ready.");
+
+});
