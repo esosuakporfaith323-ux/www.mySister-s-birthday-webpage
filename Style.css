@@ -3,7 +3,7 @@
    DREAMY GLOW THEME ✨
 ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 
 
 /* =========================================================
@@ -25,7 +25,8 @@ body {
     overflow-x: hidden;
     background: #08091b;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Kalam', cursive;
+    
 }
 
 
@@ -100,9 +101,8 @@ section {
 ========================================================= */
 
 h1,
-h2 {
-
-    font-family: 'Great Vibes', cursive;
+h2, p{
+    font-family: 'Kalam', cursive;
 
     font-weight: 400;
 
